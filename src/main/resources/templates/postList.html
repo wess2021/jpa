@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Person List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Post List</h1>
+<a href="/post">create Post</a><br><br>
+
+<div>
+    <table border="1">
+        <tr>
+            <th>TITLE</th>
+            <th>DESCRIPTION</th>
+            <th>CONTENT</th>
+            <th>Created AT</th>
+            <th>ACTION</th>
+        </tr>
+
+        <tr th:each="post: ${postList}">
+            <td th:utext="${post.title}">...</td>
+            <td th:utext="${post.description}">...</td>
+            <td th:utext="${post.content}">...</td>
+            <td th:utext="${post.createdAt}">...</td>
+            <td><a th:href="@{/deletePost/{id}(id=${post.id})}">Delete</a>
+            <a th:href="@{/editPost/{id}(id=${post.id})}">Edit</a>
+            <a th:href="@{/seePost/{id}(id=${post.id})}">Enter to Post</a></td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>

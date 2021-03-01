@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>create comment</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>create comment</h1>
+
+
+<div>
+    <form th:action="@{/comment}" method="post" th:object="${comment}">
+        <label>Text</label>
+        <input th:type="text" th:field="*{text}"><br>
+
+<button type="submit">create</button>
+    </form>
+</div>
+</body>
+</html>

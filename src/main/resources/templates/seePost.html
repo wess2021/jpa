@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Person List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Post List</h1>
+<a href="/addPost">Add blog</a>
+<a href="/addPerson">Add PERSON</a>
+<a href="/personList">PERSON LIST</a>
+<a href="/index">HOME</a>
+<br/><br/>
+<div>
+    <table border="1">
+      <tr>
+        <td><a th:href="@{/deletePost/{id}(id=${post.id})}">Delete</a></td>
+
+        <td><a th:href="@{/editPost/{id}(id=${post.id})}">Edit</a></td>
+        </tr>
+
+    </table>
+
+
+            <h1 th:utext="${post.title}">Blog</h1>
+            <h3 th:utext="${post.description}">Description</h3>
+            <p th:utext="${post.content}">Content</p>
+
+
+</div>
+
+
+<div class="comments">
+    <h2>Comments</h2>
+    <div class="comment" th:each="comment : ${post.comments}">
+
+        <p th:text="${comment.text}">comment</p>
+    </div>
+</div>
+<div class="align-center">
+    <a th:href="@{/createComment/{id}(id=${post.id})}">
+        <button class="green-btn" type="button">Comment Post</button>
+    </a>
+</div>
+
+</body>
+</html>

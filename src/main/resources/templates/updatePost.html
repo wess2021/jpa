@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add Person</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Update the blog</h1>
+
+<!--
+   In Thymeleaf the equivalent of
+   JSP's ${pageContext.request.contextPath}/edit.html
+   would be @{/edit.html}
+   -->
+
+
+
+<form action="#" th:action="@{/updatePost/{id}(id=${post.id})}" th:object="${post}" method="post">
+    <label>Title:</label>
+    <input type="text" th:field="*{title}" />
+    <br/>
+    <label>Description:</label>
+    <input type="text" th:field="*{description}" />
+    <br/>
+    <label>Content:</label>
+    <input type="text" th:field="*{content}" />
+    <br/>
+    <input type="submit" value="Update Post">
+</form>
+
+<br/>
+
+
+</body>
+</html>
